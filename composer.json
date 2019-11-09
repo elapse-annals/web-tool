@@ -1,0 +1,12 @@
+{
+    "name": "amy/rabbit-mq",
+    "authors": [
+        {
+            "name": "benhuang",
+            "email": "benhuang1024@gmail.com"
+        }
+    ],
+    "require": {
+        "php-amqplib/php-amqplib": "^2.10"
+    }
+}
