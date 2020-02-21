@@ -13,36 +13,11 @@
 
 Auth::routes();
 
-Route::get('/', 'ClosureController@welcome');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-//Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-Route::get('plural/{singular}', 'StringController@plural');
-
-Route::prefix('login')->group(function () {
-    Route::get('google', 'Auth\LoginController@redirectToProvider');
-    Route::get('google/callback', 'Auth\LoginController@handleProviderCallback');
+Route::prefix('string')->group(function () {
+    Route::get('toArray', 'StringController@toArray');
 });
 
-/**
- * Export routing registration
- */
-Route::prefix('export')->group(function () {
-    Route::get('tmpls', 'TmplController@export');
+Route::prefix('array')->group(function () {
+    Route::get('toString', 'ArrayController@toString');
 });
-
-/**
- * Resource route
- */
-Route::resource('languages', 'LanguageController');
-
-Route::get('testQueryDb', 'TmplController@testQueryDb');
-
-
-
-Route::resource('tmpls', 'TmplController');
-
-
-

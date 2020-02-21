@@ -25,18 +25,8 @@ class StringController extends Controller
         $this->service = new StringService();
     }
 
-    //
-    public function plural(Request $request)
+    public function toString()
     {
-        return $this->service->plural($request);
-    }
-
-    public function removeKilometer(Request $request)
-    {
-        return $this->service->removeKilometer($request);
-    }
-
-    public function __call($method, $parameters)
-    {
+        return null;
     }
 }
