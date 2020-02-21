@@ -24,9 +24,4 @@ class StringController extends Controller
         parent::__construct();
         $this->service = new StringService();
     }
-
-    public function toString()
-    {
-        return null;
-    }
 }

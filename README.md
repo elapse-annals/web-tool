@@ -11,7 +11,6 @@ run
 - array merge
 
 run shell
-
 ```php
 cd project_patch
 php artisan serve

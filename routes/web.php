@@ -13,11 +13,13 @@
 
 Auth::routes();
 
+Route::get('/', 'ToolController@list');
 
 Route::prefix('string')->group(function () {
-    Route::get('toArray', 'StringController@toArray');
+    Route::get('toArray', 'ToolController@stringToArray');
 });
 
 Route::prefix('array')->group(function () {
-    Route::get('toString', 'ArrayController@toString');
+    Route::get('toString', 'ToolController@arrayToString');
 });
+

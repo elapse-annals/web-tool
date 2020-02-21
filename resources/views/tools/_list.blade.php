@@ -18,11 +18,11 @@
             header-align="center"
         >
             <template slot-scope="scope">
-                <a :href="'/arrays/'+scope.row.id">
+                <a :href="'/tools/'+scope.row.id">
                     <el-button size="small" type="primary" plain
                                icon="el-icon-zoom-in"></el-button>
                 </a>
-                <a :href="'/arrays/'+scope.row.id+'/edit'">
+                <a :href="'/tools/'+scope.row.id+'/edit'">
                     <el-button size="small" type="primary" plain icon="el-icon-edit"></el-button>
                 </a>
                 <el-button size="small" type="danger" plain icon="el-icon-delete"
