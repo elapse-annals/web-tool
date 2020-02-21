@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+/**
+ * User: ben
+ * Email: benhuang1024@gmail.com
+ * Date: 2020-01-22
+ * Time: 00:01
+ */
+
+function updateSelfFramework()
+{
+    $app_path = './app';
+    $storage_path = './storage/app/tmpl';
+    $framework_dirs = [
+        'Http/Controllers' => 'Controller',
+        'Exports'          => 'Export',
+        'Formatters'       => 'Formatter',
+        'Presenters'       => 'Presenter',
+        'Repositories'     => 'Repository',
+        'Services'         => 'Service',
+        'Transformers'     => 'Transformer',
+    ];
+    foreach ($framework_dirs as $key => $value) {
+        $exec_string = "cp {$app_path}/{$key}/Tmpl{$value}.php {$storage_path}/framework/{$value}.php";
+        echo '  ' . $exec_string . PHP_EOL;
+        exec($exec_string);
+    }
+//    $exec_string = "cp ./resources/views/tmpl/* {$storage_path}/views";
+//    echo '  ' . $exec_string . PHP_EOL;
+    exec($exec_string);
+}
+
+function handle()
+{
+    echo "\033[34m Update self framework ... \e[0m" . PHP_EOL;
+    updateSelfFramework();
+    echo "\033[32m Update self framework success" . PHP_EOL;
+}
+
+handle();

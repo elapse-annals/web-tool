@@ -1,2 +1,18 @@
-# generator
-创建小工具基类（配置加载，CLI 交互，日志）
+# dashboot
+
+Web Gadget Collection
+
+run
+#### function list 
+
+- string to array
+- array to string
+- array compare (left,right)
+- array merge
+
+run shell
+
+```php
+cd project_patch
+php artisan serve
+
