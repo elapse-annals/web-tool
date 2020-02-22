@@ -73,9 +73,21 @@ class ToolController extends Controller
         return view('tools.string_to_array', $data);
     }
 
-    public function arrayToString()
+    public function arrayToString(Request $request)
     {
-        return view('tools.array_to_string');
+        $data = [
+            'array'     => $request->post('array'),
+            'string'    => null,
+            'delimiter' => $request->post('delimiter') ?: ',',
+        ];
+        if ($request->isMethod('post')) {
+            $temp_array = explode(PHP_EOL, $data['array']);
+            $temp_array = array_map(function ($value) {
+                return trim($value);
+            }, $temp_array);
+            $data['string'] = implode($data['delimiter'], $temp_array);
+        }
+        return view('tools.array_to_string', $data);
     }
 
     public function arrayCompare()

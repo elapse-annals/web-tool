@@ -2,9 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('tools._head')
+    <title>array to string</title>
 </head>
 <body>
-<div id="app" class="container v-cloak" v-loading.fullscreen.lock="fullscreen_loading">
+<div id="app" class="container v-cloak" >
     <header class="row">
         @include('tools._header')
     </header>
@@ -15,8 +16,5 @@
         @include('tools._footer')
     </footer>
 </div>
-@section('script')
-    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-@show
 </body>
 </html>
