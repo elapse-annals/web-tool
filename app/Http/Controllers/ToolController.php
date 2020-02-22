@@ -90,16 +90,73 @@ class ToolController extends Controller
         return view('tools.array_to_string', $data);
     }
 
-    public function arrayCompare()
+    public function arrayCompare(Request $request)
     {
-        return view('tools.array_compare');
+        $data = [
+            'left'   => $request->post('left'),
+            'right'  => $request->post('right'),
+            'type'   => $request->post('type'),
+            'result' => null,
+        ];
+        if ($request->isMethod('post')) {
+            $temp_array_left = explode(PHP_EOL, $data['left']);
+            $temp_array_right = explode(PHP_EOL, $data['right']);
+            switch ($data['type']) {
+                case 'intersect':
+                    $temp_array = array_intersect($temp_array_left, $temp_array_right);
+                    break;
+                case 'diff':
+                    $temp_array = array_diff($temp_array_left, $temp_array_right);
+                    break;
+            }
+            $temp_array = array_map(function ($value) {
+                return trim($value);
+            }, $temp_array);
+            $data['result'] = implode(PHP_EOL, $temp_array);
+        }
 
+        return view('tools.array_compare', $data);
     }
 
-    public function arrayMerge()
+    public function arrayMerge(Request $request)
     {
-        return view('tools.array_merge');
+        $data = [
+            'left'   => $request->post('left'),
+            'right'  => $request->post('right'),
+            'type'   => $request->post('type'),
+            'result' => null,
+        ];
+        if ($request->isMethod('post')) {
+            $temp_array_left = explode(PHP_EOL, $data['left']);
+            $temp_array_right = explode(PHP_EOL, $data['right']);
+            $temp_array = array_merge($temp_array_left, $temp_array_right);
+            $temp_array = array_map(function ($value) {
+                return trim($value);
+            }, $temp_array);
+            switch ($data['type']) {
+                case 'unique':
+                    $temp_array = array_unique($temp_array);
+                    break;
+            }
+            $data['result'] = implode(PHP_EOL, $temp_array);
+        }
+        return view('tools.array_merge', $data);
+    }
 
+    public function arrayUnique(Request $request)
+    {
+        $data = [
+            'array' => $request->post('array'),
+        ];
+        if ($request->isMethod('post')) {
+            $temp_array = explode(PHP_EOL, $data['array']);
+            $temp_array = array_map(function ($value) {
+                return trim($value);
+            }, $temp_array);
+            $temp_array = array_unique($temp_array);
+            $data['result'] = implode(PHP_EOL, $temp_array);
+        }
+        return view('tools.array_unique', $data);
     }
 
 }

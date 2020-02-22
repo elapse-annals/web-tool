@@ -2,10 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('tools._head')
-    <title>array to string</title>
+    <title>@yield('title','title')</title>
 </head>
 <body>
-<div id="app" class="container v-cloak" >
+<div id="app" class="container v-cloak">
     <header class="row">
         @include('tools._header')
     </header>

@@ -1,1 +1,3 @@
-<link rel="stylesheet" href="{{asset('css/app.css')}}">
+<div>
+    <a href="/">tool</a>
+</div>

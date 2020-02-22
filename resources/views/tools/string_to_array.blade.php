@@ -1,5 +1,7 @@
 @extends('tools._layout')
 
+@section('title','string to array')
+
 @section('content')
     <form action="" method="post">
         {{ csrf_field() }}

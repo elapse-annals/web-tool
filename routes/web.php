@@ -20,5 +20,6 @@ Route::prefix('tool')->group(function () {
     Route::any('array_to_string', 'ToolController@arrayToString');
     Route::any('array_compare', 'ToolController@arrayCompare');
     Route::any('array_merge', 'ToolController@arrayMerge');
+    Route::any('array_unique', 'ToolController@arrayUnique');
 });
 
