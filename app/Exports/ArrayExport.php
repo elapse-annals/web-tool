@@ -2,7 +2,6 @@
 
 namespace App\Exports;
 
-use App\Models\Array;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class ArrayExport implements FromCollection
@@ -12,6 +11,5 @@ class ArrayExport implements FromCollection
     */
     public function collection()
     {
-        return Array::all();
     }
 }

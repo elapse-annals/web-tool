@@ -13,13 +13,12 @@
 
 Auth::routes();
 
-Route::get('/', 'ToolController@list');
+Route::get('/', ['as' => 'tool', 'uses' => 'ToolController@lists']);
 
-Route::prefix('string')->group(function () {
-    Route::get('toArray', 'ToolController@stringToArray');
-});
-
-Route::prefix('array')->group(function () {
-    Route::get('toString', 'ToolController@arrayToString');
+Route::prefix('tool')->group(function () {
+    Route::any('string_to_array', 'ToolController@stringToArray');
+    Route::any('array_to_string', 'ToolController@arrayToString');
+    Route::any('array_compare', 'ToolController@arrayCompare');
+    Route::any('array_merge', 'ToolController@arrayMerge');
 });
 
