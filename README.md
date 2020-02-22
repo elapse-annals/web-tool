@@ -9,6 +9,7 @@ run
 - array to string
 - array compare (left,right)
 - array merge
+- array unique
 
 run shell
 ```php
