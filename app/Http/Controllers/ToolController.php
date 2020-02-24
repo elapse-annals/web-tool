@@ -101,6 +101,12 @@ class ToolController extends Controller
         if ($request->isMethod('post')) {
             $temp_array_left = explode(PHP_EOL, $data['left']);
             $temp_array_right = explode(PHP_EOL, $data['right']);
+            $temp_array_left = array_map(function ($value) {
+                return trim($value);
+            }, $temp_array_left);
+            $temp_array_right = array_map(function ($value) {
+                return trim($value);
+            }, $temp_array_right);
             switch ($data['type']) {
                 case 'intersect':
                     $temp_array = array_intersect($temp_array_left, $temp_array_right);
