@@ -152,7 +152,8 @@ class ToolController extends Controller
     public function arrayUnique(Request $request)
     {
         $data = [
-            'array' => $request->post('array'),
+            'array'  => $request->post('array'),
+            'result' => null,
         ];
         if ($request->isMethod('post')) {
             $temp_array = explode(PHP_EOL, $data['array']);
